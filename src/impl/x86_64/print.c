@@ -66,6 +66,19 @@ void print_char(char character) {
     col++;
 }
 
+void print_addr(char* str, size_t x, size_t y) {
+    size_t colB = col;
+    size_t rowB = row;
+
+    col = x;
+    row = y;
+
+    print_str(str);
+
+    col = colB;
+    row = rowB;
+}
+
 void print_str(char* str) {
     for (size_t i = 0; 1; i++) {
         char character = (uint8_t) str[i];
