@@ -91,20 +91,6 @@ void print_str(char* str) {
     }
 }
 
-void printf_str(char* str) {
-    for (size_t i = 0; 1; i++) {
-        char character = (uint8_t) str[i];
-
-        if (character == '\0') {
-            return;
-        }
-
-        print_char(character);
-    }
-
-    print_char((uint8_t) " ");
-}
-
 void print_set_color(uint8_t foreground, uint8_t background) {
     color = foreground + (background << 4);
 }

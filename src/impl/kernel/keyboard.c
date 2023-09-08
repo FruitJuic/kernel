@@ -1,5 +1,5 @@
 #include "keyboard.h"
 
-str* keyboard_main() {
+char* keyboard_main() {
     return "Keyboard function";
 }

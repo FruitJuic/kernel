@@ -1,1 +1,1 @@
-str* keyboard_main();
+char* keyboard_main();
