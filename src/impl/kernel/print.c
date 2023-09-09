@@ -8,10 +8,23 @@ struct Char {
     uint8_t color;
 };
 
-struct Char* buffer = (struct Char*) 0xb8000;
+struct Char* buffer;
+struct Char* updateBuffer = (struct Char*) 0xb8000;
 size_t col = 0;
 size_t row = 0;
 uint8_t color = PRINT_COLOR_WHITE | PRINT_COLOR_BLACK << 4;
+
+void update_row(size_t row) {
+    for (size_t col = 0; col < NUM_COLS; col++) {
+            updateBuffer[col + NUM_COLS * row] = buffer[col + NUM_COLS * row];
+    }
+}
+
+void update_screen() {
+    for (size_t i = 0; i < NUM_ROWS; i++) {
+        update_row(i);
+    }
+}
 
 void clear_row(size_t row) {
     struct Char empty = (struct Char) {
